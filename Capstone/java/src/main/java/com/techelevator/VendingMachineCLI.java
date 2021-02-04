@@ -18,9 +18,11 @@ public class VendingMachineCLI {
 
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
 	private static final String MAIN_MENU_OPTION_PURCHASE      = "Purchase";
+	private static final String MAIN_MENU_SALES_REPORT      = "Sales Report";
 	private static final String MAIN_MENU_OPTION_EXIT          = "Exit";
 	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS,
-													    MAIN_MENU_OPTION_PURCHASE,
+													    MAIN_MENU_OPTION_PURCHASE, 
+													    MAIN_MENU_SALES_REPORT,
 													    MAIN_MENU_OPTION_EXIT
 													    };
 	
