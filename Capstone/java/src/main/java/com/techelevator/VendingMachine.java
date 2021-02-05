@@ -24,15 +24,18 @@ public class VendingMachine {
 	public double displayMoney() {
 		return machineMoney.getCurrentBalance();
 	}
-	public double addMoney() {
-		Scanner userInput = new Scanner(System.in);
-		while (userInput.equals("1")) {
-		machineMoney.addMoney();
-		}
-		userInput.close();
+	public double addMoney() {		
+								
 		return machineMoney.addMoney();
-	}
-	public purchaseItems() {
-	achineInv.purchaseItems();
+				}
+	public void purchaseItems() {
+		System.out.println("Please choose a slot: ");
+		displayItems();
+		
+		Scanner userInput = new Scanner(System.in);
+		String slotChoice = userInput.nextLine();
+		
+		}
 	}
 }
+	

@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 public class Inventory {//create the class
-	private Map <String, Slot> machineInv; //will have a string id , the value is the quantity in stock
+	public Map <String, Slot> machineInv; //will have a string id , the value is the quantity in stock
 	private static final int DEFAULT_STARTING_STOCK = 5;
 	//private int currentStock;
 	

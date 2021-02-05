@@ -20,12 +20,12 @@ public double addMoney () {
 	double userAmount = Double.valueOf(userText);
 		if(userAmount == 1.00|| userAmount == 2.00 || userAmount ==5.00 || userAmount ==10.00) {
 			Double moneyFed = userAmount;
-			currentBalance += moneyFed*100;
+			currentBalance += moneyFed;
 		}
 		else {
 			System.out.println("The amount entered is invalid. Please enter $1.00, $2.00, $5.00 or $10.00.");
 		}
-		userInput.close();
+		
 		return currentBalance;
 	}
 	

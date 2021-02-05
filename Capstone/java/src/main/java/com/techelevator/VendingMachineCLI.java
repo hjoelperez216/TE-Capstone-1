@@ -102,7 +102,7 @@ public class VendingMachineCLI {
 	
 	public void purchaseItems() {	 // static attribute used as method is not associated with specific object instance
 		boolean shouldProcess = true;         // Loop control variable
-		System.out.println(SUB_MENU_CURRENT_MONEY + " $" + formatter.format(thisMachine.displayMoney()));
+		//System.out.println(SUB_MENU_CURRENT_MONEY + " $" + formatter.format(thisMachine.displayMoney()));
 		while(shouldProcess) {                // Loop until user indicates they want to exit
 			
 			
@@ -111,11 +111,16 @@ public class VendingMachineCLI {
 			switch(choice) {                  // Process based on user menu choice
 			
 				case SUB_MENU_FEED_MONEY:
-					thisMachine.addMoney();   // invoke method to add money in Vending Machine
+					
+					thisMachine.addMoney();   // invoke method to add money in Vending Machine	
+					System.out.println(SUB_MENU_CURRENT_MONEY + " $" + formatter.format(thisMachine.displayMoney()));
 					break;                    // Exit switch statement
+					
 			
 				case SUB_MENU_SELECT_PRODUCT:
+				
 					thisMachine.purchaseItems();          // invoke method to purchase items from Vending Machine
+					System.out.println(SUB_MENU_CURRENT_MONEY + " $" + formatter.format(thisMachine.displayMoney()));
 					break;                    // Exit switch statement
 			
 				case SUB_MENU_FINISH_TRANSACTION:
