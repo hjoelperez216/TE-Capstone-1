@@ -21,4 +21,8 @@ public class VendingMachine {
 	public void displayItems() {
 		machineInv.displayInventory();
 	}
+	public double displayMoney() {
+		return machineMoney.getCurrentBalance();
+		
+	}
 }

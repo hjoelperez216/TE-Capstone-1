@@ -11,6 +11,14 @@ public class Slot {
 		this.price = price;
 	}
 
+	public void decreaseQuantity() {
+		if (quantity>0) {
+		quantity -= 1;
+		} else
+			System.out.println("Sold Out");
+	}
+	
+	
 	/**
 	 * @return the quantity
 	 */

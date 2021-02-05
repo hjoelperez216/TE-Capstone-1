@@ -5,12 +5,13 @@ public class Money {
 //private final int DEFAULTBALANCE = 0;
 public int currentBalance;
 
-public void startingBalance() {
-	currentBalance = 0;
+public int startingBalance() {
+	return currentBalance = 0;
+	
 }
 
-public void moneyAdded(int cashInserted) {
-	currentBalance += cashInserted*100;
+public void moneyAdded(int moneyFed) {
+	currentBalance += moneyFed*100;
 	
 }
 

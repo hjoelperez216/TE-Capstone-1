@@ -1,5 +1,6 @@
 package com.techelevator;
 import java.io.FileNotFoundException;
+import java.text.DecimalFormat;
 
 /**************************************************************************************************************************
 *  This is your Vending Machine Command Line Interface (CLI) class
@@ -27,11 +28,23 @@ public class VendingMachineCLI {
 													    MAIN_MENU_SALES_REPORT,
 													    MAIN_MENU_OPTION_EXIT
 													    };
+	private static final String SUB_MENU_CURRENT_MONEY ="Current Money Provided: ";
+	private static final String SUB_MENU_FEED_MONEY ="Feed Money";
+	private static final String SUB_MENU_SELECT_PRODUCT ="Select Product";
+	private static final String SUB_MENU_FINISH_TRANSACTION ="Finish Transaction";
+	private static final String[] SUB_MENU_OPTIONS = { 
+			SUB_MENU_FEED_MONEY, 
+			SUB_MENU_SELECT_PRODUCT,
+			SUB_MENU_FINISH_TRANSACTION
+		    };
+	
+	private DecimalFormat formatter = new DecimalFormat("0.00");
 	
 	private Menu vendingMenu;              // Menu object to be used by an instance of this class
 	
-	public VendingMachineCLI(Menu menu) {  // Constructor - user will pas a menu for this class to use
+	public VendingMachineCLI(Menu menu) throws FileNotFoundException {  // Constructor - user will pas a menu for this class to use
 		this.vendingMenu = menu;           // Make the Menu the user object passed, our Menu
+		this.thisMachine = new VendingMachine();
 	}
 	/**************************************************************************************************************************
 	*  VendingMachineCLI main processing loop
@@ -47,10 +60,10 @@ public class VendingMachineCLI {
 	 * @throws FileNotFoundException 
 	*
 	***************************************************************************************************************************/
-	VendingMachine thisMachine = new VendingMachine();//instantiates a vending machine, which will also cause the inventory to be loaded
+	private VendingMachine thisMachine;//instantiates a vending machine, which will also cause the inventory to be loaded
 	
 	public void run() throws FileNotFoundException {
-		VendingMachine thisMachine = new VendingMachine(); //instantiates a vending machine, which will also cause the inventory to be loaded
+		//VendingMachine thisMachine = new VendingMachine(); //instantiates a vending machine, which will also cause the inventory to be loaded
 		
 		boolean shouldProcess = true;         // Loop control variable
 		
@@ -84,7 +97,33 @@ public class VendingMachineCLI {
 	}
 	
 	public void purchaseItems() {	 // static attribute used as method is not associated with specific object instance
-		// Code to purchase items from Vending Machine
+		boolean shouldProcess = true;         // Loop control variable
+		System.out.println(SUB_MENU_CURRENT_MONEY + " $" + formatter.format(thisMachine.displayMoney()));
+		while(shouldProcess) {                // Loop until user indicates they want to exit
+			
+			
+			String choice = (String)vendingMenu.getChoiceFromOptions(SUB_MENU_OPTIONS);  // Display menu and get choice
+			
+			switch(choice) {                  // Process based on user menu choice
+			
+				case SUB_MENU_FEED_MONEY:
+					displayItems();           // invoke method to display items in Vending Machine
+					break;                    // Exit switch statement
+			
+				case SUB_MENU_SELECT_PRODUCT:
+					purchaseItems();          // invoke method to purchase items from Vending Machine
+					break;                    // Exit switch statement
+			
+				case SUB_MENU_FINISH_TRANSACTION:
+					endMethodProcessing();    // Invoke method to perform end of method processing
+					shouldProcess = false;    // Set variable to end loop
+					break;                    // Exit switch statement
+			}	
+		}
+		
+	}
+	public void salesReport() {
+		
 	}
 	
 	public void endMethodProcessing() { // static attribute used as method is not associated with specific object instance
