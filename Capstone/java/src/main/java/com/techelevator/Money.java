@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.Scanner;
+
 public class Money {
 
 //private final int DEFAULTBALANCE = 0;
@@ -10,12 +12,26 @@ public int startingBalance() {
 	
 }
 
-public void moneyAdded(int moneyFed) {
-	currentBalance += moneyFed*100;
+public double addMoney () {
+	System.out.println("Please enter the amount you are feeding: $1.00, $2.00, $5.00 or $10.00.");
+	//String [] acceptableBills = new String [] {"$1.00", "$2.00", "$5.00", "$10.00"};
+	Scanner userInput = new Scanner(System.in);
+	String userText= userInput.nextLine();
+	double userAmount = Double.valueOf(userText);
+		if(userAmount == 1.00|| userAmount == 2.00 || userAmount ==5.00 || userAmount ==10.00) {
+			Double moneyFed = userAmount;
+			currentBalance += moneyFed*100;
+		}
+		else {
+			System.out.println("The amount entered is invalid. Please enter $1.00, $2.00, $5.00 or $10.00.");
+		}
+		userInput.close();
+		return currentBalance;
+	}
 	
-}
 
-public void moneyDeducted(int itemCost) {
+
+public void duductMoney(int itemCost) {
 	currentBalance -= (itemCost*100);
 }
 

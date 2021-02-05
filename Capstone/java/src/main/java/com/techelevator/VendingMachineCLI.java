@@ -80,7 +80,11 @@ public class VendingMachineCLI {
 				case MAIN_MENU_OPTION_PURCHASE:
 					purchaseItems();          // invoke method to purchase items from Vending Machine
 					break;                    // Exit switch statement
-			
+					
+				case MAIN_MENU_SALES_REPORT: 
+					//salesreport();				//invoke method to produce the sales report from Vending Machine
+					break;						//Exit switch statement
+					
 				case MAIN_MENU_OPTION_EXIT:
 					endMethodProcessing();    // Invoke method to perform end of method processing
 					shouldProcess = false;    // Set variable to end loop
@@ -107,11 +111,11 @@ public class VendingMachineCLI {
 			switch(choice) {                  // Process based on user menu choice
 			
 				case SUB_MENU_FEED_MONEY:
-					displayItems();           // invoke method to display items in Vending Machine
+					thisMachine.addMoney();   // invoke method to add money in Vending Machine
 					break;                    // Exit switch statement
 			
 				case SUB_MENU_SELECT_PRODUCT:
-					purchaseItems();          // invoke method to purchase items from Vending Machine
+					thisMachine.purchaseItems();          // invoke method to purchase items from Vending Machine
 					break;                    // Exit switch statement
 			
 				case SUB_MENU_FINISH_TRANSACTION:

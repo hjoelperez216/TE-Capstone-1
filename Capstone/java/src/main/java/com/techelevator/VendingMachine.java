@@ -23,6 +23,16 @@ public class VendingMachine {
 	}
 	public double displayMoney() {
 		return machineMoney.getCurrentBalance();
-		
+	}
+	public double addMoney() {
+		Scanner userInput = new Scanner(System.in);
+		while (userInput.equals("1")) {
+		machineMoney.addMoney();
+		}
+		userInput.close();
+		return machineMoney.addMoney();
+	}
+	public purchaseItems() {
+	achineInv.purchaseItems();
 	}
 }
