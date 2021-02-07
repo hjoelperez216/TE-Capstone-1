@@ -17,10 +17,6 @@ public class Slot {
 		} else
 			System.out.println("Sold Out");
 	}
-	
-	
-	
-	
 	/**
 	 * @return the quantity
 	 */
@@ -45,6 +41,14 @@ public class Slot {
 	@Override
 	public String toString() {
 		return "Slot [quantity=" + quantity + ", item=" + item + ", price=" + price + "]";
+	}
+	public String itemType(){
+		String type = getItem().getType();
+		return type;
+	}
+	public String itemName() {
+		String name = getItem().getName();
+		return name;
 	}
 }
 

@@ -32,7 +32,12 @@ public double addMoney () {
 
 
 public void deductMoney(double itemCost) {
+	if(currentBalance >= itemCost) {
 	currentBalance -= (itemCost);
+	}
+	else {
+		System.out.println("You don't have enough funds for this selection.");
+	}
 }
 
 public double getCurrentBalance() {

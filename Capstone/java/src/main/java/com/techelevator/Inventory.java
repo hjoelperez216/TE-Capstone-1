@@ -2,17 +2,21 @@ package com.techelevator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeMap;
+import java.text.DecimalFormat;
+
+
 
 public class Inventory {//create the class
 	public Map <String, Slot> machineInv; //will have a string id , the value is the quantity in stock
 	private static final int DEFAULT_STARTING_STOCK = 5;
 	//private int currentStock;
-	
+	private DecimalFormat formatter = new DecimalFormat("0.00");
 	
 	//create constructors
 		//default constructor
@@ -56,19 +60,40 @@ private void loadFile (String fileNameToLoad) throws FileNotFoundException {
 		
 		public void purchaseItem (String slotChoice) {
 			// search the map to confirm the slot number is valid
+			String theName = machineInv.get(slotChoice).itemName();
+			double thePrice = machineInv.get(slotChoice).price;
 			if (machineInv.containsKey(slotChoice)){
 				//Set<Slot> theSlots = (Set<Slot>) machineInv.values();
-				
 				machineInv.get(slotChoice).decreaseQuantity();
-				System.out.println("");	
+				String itemType = machineInv.get(slotChoice).itemType();
+				//boolean shouldProcess = true;
+				//while (shouldProcess) {
+				//switch (itemType) {
 				
-			}
+					if (itemType.contains("Chip")){
+						System.out.println("Crunch, Crunch, Yum!");	
+						System.out.println("You purchased " + theName + " for $" +formatter.format(thePrice)+".");
+					}
+					else if(itemType.contains("Candy")){  
+						System.out.println("Munch, Munch, Yum!");
+						System.out.println("You purchased " + theName + " for $" +formatter.format(thePrice)+".");
+					}
+					else if (itemType.contains("Drink")){
+						System.out.println("Glug, Glug, Yum!");
+						System.out.println("You purchased " + theName + " for $" +formatter.format(thePrice)+".");
+					}
+					else if (itemType.contains("Gum")){
+						System.out.println("Chew, Chew, Yum!");
+						System.out.println("You purchased " + theName + " for $" +formatter.format(thePrice)+".");
+					}
+					//default: 
+						//System.out.println("Invalid");
+				}				
 			else {
 				System.out.println("That selection was not valid. Please select a valid slot.");
 			}
-			
+		}
 							
-						}
 		public double getPrice(String slotChoice) {
 			
 			double itemPrice = machineInv.get(slotChoice).getPrice();
