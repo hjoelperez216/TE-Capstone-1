@@ -1,5 +1,6 @@
 package com.techelevator;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.DecimalFormat;
 
 /**************************************************************************************************************************
@@ -62,7 +63,7 @@ public class VendingMachineCLI {
 	***************************************************************************************************************************/
 	private VendingMachine thisMachine;//instantiates a vending machine, which will also cause the inventory to be loaded
 	
-	public void run() throws FileNotFoundException {
+	public void run() throws IOException {
 		//VendingMachine thisMachine = new VendingMachine(); //instantiates a vending machine, which will also cause the inventory to be loaded
 		
 		boolean shouldProcess = true;         // Loop control variable
@@ -100,7 +101,7 @@ public class VendingMachineCLI {
 		thisMachine.displayItems();
 	}
 	
-	public void purchaseItems() {	 // static attribute used as method is not associated with specific object instance
+	public void purchaseItems() throws IOException {	 // static attribute used as method is not associated with specific object instance
 		boolean shouldProcess = true;         // Loop control variable
 		//System.out.println(SUB_MENU_CURRENT_MONEY + " $" + formatter.format(thisMachine.displayMoney()));
 		while(shouldProcess) {                // Loop until user indicates they want to exit

@@ -1,7 +1,13 @@
 package com.techelevator;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class VendingMachine {
@@ -11,6 +17,22 @@ public class VendingMachine {
 	private ShoppingCart machineCart;
 	private LogKeeper machineLog;
 		
+	
+	Timestamp timestampNow = Timestamp.valueOf(LocalDateTime.now());
+	public static void main() throws IOException{
+	
+	File logFile = new File("./Log.txt");
+	boolean appendToFile = true;
+			
+		FileWriter aFileWriter = new FileWriter(logFile, appendToFile);
+		
+		BufferedWriter aBufferedWriter= new BufferedWriter(aFileWriter);
+		
+		try (PrintWriter diskFileWriter = new PrintWriter(aBufferedWriter))
+		{		
+		diskFileWriter.println("");
+		}
+	}
 	
 	public VendingMachine () throws FileNotFoundException {
 		this.machineInv		=	new Inventory();
@@ -25,9 +47,11 @@ public class VendingMachine {
 	public double displayMoney() {
 		return machineMoney.getCurrentBalance();
 	}
-	public double addMoney() {		
-								
+	public double addMoney() throws IOException {		
+		String addMoneyText = timestampNow +machineMoney.addMoneyLogLine;
+		machineLog.addToLog(addMoneyText);
 		return machineMoney.addMoney();
+	
 				}
 	public void purchaseItems() {
 		System.out.println("Please choose a slot: "); // requests input from user

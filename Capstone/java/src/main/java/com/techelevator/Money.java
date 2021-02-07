@@ -6,7 +6,7 @@ public class Money {
 
 //private final int DEFAULTBALANCE = 0;
 public double currentBalance;
-
+public String addMoneyLogLine = "";
 public double startingBalance() {
 	return currentBalance = 0;
 	
@@ -17,6 +17,7 @@ public double addMoney () {
 	//String [] acceptableBills = new String [] {"$1.00", "$2.00", "$5.00", "$10.00"};
 	Scanner userInput = new Scanner(System.in);
 	String userText= userInput.nextLine();
+	addMoneyLogLine = " FEED MONEY " + userText;
 	double userAmount = Double.valueOf(userText);
 		if(userAmount == 1.00|| userAmount == 2.00 || userAmount ==5.00 || userAmount ==10.00) {
 			Double moneyFed = userAmount;
@@ -25,7 +26,6 @@ public double addMoney () {
 		else {
 			System.out.println("The amount entered is invalid. Please enter $1.00, $2.00, $5.00 or $10.00.");
 		}
-		
 		return currentBalance;
 	}
 	

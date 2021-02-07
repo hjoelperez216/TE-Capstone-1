@@ -10,38 +10,29 @@ import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class LogKeeper {
-	public static void main(String[] args) throws IOException{
-	
-//	File myFile = new File("./Log.txt");
-//	
-//	if (!myFile.exists() || !myFile.isFile()) {
-//		System.out.println("path specified for input file is not an existing file");
-//		System.exit(16);   // terminate program with a return code 16
-//	}
-	
-	File logFile = new File("Log.txt");
-	
-	//boolean appendToFile = true;
-	
-//	if (logFile.exists()) { // if the file exists...
-	if (logFile.exists()) {
-		
-		FileWriter aFileWriter = new FileWriter(logFile);
+	static String logText = "";
+	public static String addToLog(String textToBeAdded) {
+		logText = logText + textToBeAdded;
+		return logText;
+	}
+	Timestamp timestampNow = Timestamp.valueOf(LocalDateTime.now());
+	public static void main() throws IOException{
+	File logFile = new File("./Log.txt");
+	boolean appendToFile = true;
+			
+		FileWriter aFileWriter = new FileWriter(logFile, appendToFile);
 		
 		BufferedWriter aBufferedWriter= new BufferedWriter(aFileWriter);
 		
-		try (PrintWriter newLogFile = new PrintWriter(logFile))
+		try (PrintWriter diskFileWriter = new PrintWriter(aBufferedWriter))
 		{		
-		//Timestamp timestampNow = Timestamp.valueOf(LocalDateTime.now());
-		
-		newLogFile.println("Hello");
+		diskFileWriter.println(logText);
 		}
-	}else {
-		logFile.createNewFile();
 	}
+//public void addMoneyEntry (String amountAdded) {
+	//diskFileWriter.println(timestampNow + "FEED MONEY" +amountAdded);
 	}
 	
 	
-
-}
+	
 
