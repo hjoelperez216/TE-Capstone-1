@@ -36,6 +36,9 @@ public class VendingMachine {
 		Scanner userInput = new Scanner(System.in);
 		String slotChoice = userInput.nextLine().toUpperCase(); //accepts user input
 		machineInv.purchaseItem(slotChoice);
+		machineMoney.deductMoney(machineInv.getPrice(slotChoice));
+		
+		
 		//need to run a purchase item method in Inventory, using slotChoice as input
 		
 		//return machineMoney.purchaseItem(slotChoice);

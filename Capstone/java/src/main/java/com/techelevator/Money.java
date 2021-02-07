@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class Money {
 
 //private final int DEFAULTBALANCE = 0;
-public int currentBalance;
+public double currentBalance;
 
-public int startingBalance() {
+public double startingBalance() {
 	return currentBalance = 0;
 	
 }
@@ -31,11 +31,11 @@ public double addMoney () {
 	
 
 
-public void duductMoney(int itemCost) {
-	currentBalance -= (itemCost*100);
+public void deductMoney(double itemCost) {
+	currentBalance -= (itemCost);
 }
 
-public int getCurrentBalance() {
+public double getCurrentBalance() {
 	return currentBalance;
 }
 

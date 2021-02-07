@@ -59,25 +59,21 @@ private void loadFile (String fileNameToLoad) throws FileNotFoundException {
 			if (machineInv.containsKey(slotChoice)){
 				//Set<Slot> theSlots = (Set<Slot>) machineInv.values();
 				
-				slotChoice.
-				
-				machineInv.containsKey(slotChoice).
-				machineInv.decreaseQuantity();
+				machineInv.get(slotChoice).decreaseQuantity();
+				System.out.println("");	
 				
 			}
 			else {
 				System.out.println("That selection was not valid. Please select a valid slot.");
 			}
-			//Set <String> theKeys = machineInv.keySet();
-			//for (String anElement : theKeys) {
-			//	Slot theValue = machineInv.get(anElement);
-			//			if (theValue.equals(slotNumber)) {
-							//do the stuff that happens when slot is valid
-							// if the slot does exist, dispense the item =>reduce the quantity in Slot (index 0)
-							//run the Slot method decrease quantity on the value for the key that equals slotNumber
-			//				theValue.decreaseQuantity();
+			
 							
 						}
+		public double getPrice(String slotChoice) {
+			
+			double itemPrice = machineInv.get(slotChoice).getPrice();
+			return itemPrice;
+		}
 					
 			}
 			
