@@ -124,8 +124,13 @@ public class VendingMachineCLI {
 					break;                    // Exit switch statement
 			
 				case SUB_MENU_FINISH_TRANSACTION:
-					endMethodProcessing();    // Invoke method to perform end of method processing
+					
+					
+					//thisMachine.getChange();
+					
+					thisMachine.endMethodProcessing(); // Invoke method to perform end of method processing
 					shouldProcess = false;    // Set variable to end loop
+					
 					break;                    // Exit switch statement
 			}	
 		}

@@ -40,15 +40,17 @@ public class VendingMachine {
 			machineInv.purchaseItem(slotChoice);
 		}
 		else System.out.println("You do not have enough funds for this selection.");
-		
-		
-		//need to run a purchase item method in Inventory, using slotChoice as input
-		
-		//return machineMoney.purchaseItem(slotChoice);
-		//need to run a purchase item method in Money using the price of the item
-		//need to add the selected item to the shopping cart
-		//need to add the selected item to LogKeeper?
+
 		}
+	
+	public String getChange() {
+		return machineMoney.makeChange();
+		
+	}
+	public void endMethodProcessing() {
+		getChange();
+	}
+	
 	}
 
 	

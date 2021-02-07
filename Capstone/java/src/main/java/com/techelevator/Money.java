@@ -61,27 +61,22 @@ public String makeChange() {
 //		
 //	}
 	
-	int quarter = 25;
-	int dime = 10;
-	int nickel =5;
+	double quarter = .25;
+	double dime = .10;
+	double nickel =.05;
 	int quartersReturned = 0;
 	int dimesReturned = 0;
 	int nickelsReturned = 0;
 	
-	while(currentBalance >0){
-		if (currentBalance>=quarter){
-			quartersReturned ++;
-			currentBalance = currentBalance - quarter;
-		}
-		else if (currentBalance>=dime){
-			dimesReturned ++;
-			currentBalance = currentBalance - dime;
-					}else if (currentBalance>=nickel){
-			nickelsReturned ++;
-			currentBalance = currentBalance - nickel;
-		}
-	}
-	String coinsReturned = "Your change is" + quartersReturned + " quarters, " +dimesReturned + " dimes, and " +nickelsReturned +"nickels.";
+	quartersReturned = (int) (currentBalance/quarter);
+	currentBalance = currentBalance -(quartersReturned*quarter);
+	dimesReturned = (int) (currentBalance/dime);
+	currentBalance = currentBalance - (dimesReturned*dime);
+	nickelsReturned = (int) (currentBalance/nickel);
+	currentBalance = currentBalance/nickel;
+	
+
+	String coinsReturned = "Your change is " + quartersReturned + " quarters, " +dimesReturned + " dimes, and " +nickelsReturned +" nickels.";
 	System.out.println(coinsReturned);
 	
 	
