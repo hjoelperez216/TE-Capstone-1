@@ -43,7 +43,6 @@ public class Slot {
 	@Override
 	public String toString() {
 		return "Slot [quantity=" + quantity + ", item=" + item + ", price=" + price + "]";
-	}	
-		
+	}
 }
 

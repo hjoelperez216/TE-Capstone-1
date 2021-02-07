@@ -48,10 +48,37 @@ private void loadFile (String fileNameToLoad) throws FileNotFoundException {
 }
 		public void displayInventory() {
 			Set<String> theKeys = machineInv.keySet();
-			for(String anElement : theKeys) {  // Loop through theKeys one at a time assigning teh current key to anElement
+			for(String anElement : theKeys) {  // Loop through theKeys one at a time assigning the current key to anElement
 				Slot theValue = machineInv.get(anElement);   // get the value for current key and store it in theValue
 				System.out.println(anElement + " " + theValue);  // Display the person's name and where they live	
+			}
 		}
-}	
-}
-
+		
+		public void purchaseItem (String slotChoice) {
+			// search the map to confirm the slot number is valid
+			if (machineInv.containsKey(slotChoice)){
+				//Set<Slot> theSlots = (Set<Slot>) machineInv.values();
+				
+				slotChoice.
+				
+				machineInv.containsKey(slotChoice).
+				machineInv.decreaseQuantity();
+				
+			}
+			else {
+				System.out.println("That selection was not valid. Please select a valid slot.");
+			}
+			//Set <String> theKeys = machineInv.keySet();
+			//for (String anElement : theKeys) {
+			//	Slot theValue = machineInv.get(anElement);
+			//			if (theValue.equals(slotNumber)) {
+							//do the stuff that happens when slot is valid
+							// if the slot does exist, dispense the item =>reduce the quantity in Slot (index 0)
+							//run the Slot method decrease quantity on the value for the key that equals slotNumber
+			//				theValue.decreaseQuantity();
+							
+						}
+					
+			}
+			
+			

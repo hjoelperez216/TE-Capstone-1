@@ -20,6 +20,7 @@ public class VendingMachine {
 		}
 	public void displayItems() {
 		machineInv.displayInventory();
+		
 	}
 	public double displayMoney() {
 		return machineMoney.getCurrentBalance();
@@ -29,13 +30,19 @@ public class VendingMachine {
 		return machineMoney.addMoney();
 				}
 	public void purchaseItems() {
-		System.out.println("Please choose a slot: ");
-		displayItems();
+		System.out.println("Please choose a slot: "); // requests input from user
+		displayItems(); //shows user the available items
 		
 		Scanner userInput = new Scanner(System.in);
-		String slotChoice = userInput.nextLine();
+		String slotChoice = userInput.nextLine().toUpperCase(); //accepts user input
+		machineInv.purchaseItem(slotChoice);
+		//need to run a purchase item method in Inventory, using slotChoice as input
 		
+		//return machineMoney.purchaseItem(slotChoice);
+		//need to run a purchase item method in Money using the price of the item
+		//need to add the selected item to the shopping cart
+		//need to add the selected item to LogKeeper?
 		}
 	}
-}
+
 	
