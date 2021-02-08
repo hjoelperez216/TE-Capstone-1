@@ -129,7 +129,7 @@ public class VendingMachineCLI {
 					
 					//thisMachine.getChange();???
 					
-					thisMachine.endMethodProcessing(); // Invoke method to perform end of method processing
+					thisMachine.exitPurchaseMenu(); // Invoke method to perform end of method processing
 					shouldProcess = false;    // Set variable to end loop
 					
 					break;                    // Exit switch statement
@@ -138,6 +138,7 @@ public class VendingMachineCLI {
 		
 	}
 	public void salesReport() {
+		thisMachine.salesReport();
 		
 	}
 	

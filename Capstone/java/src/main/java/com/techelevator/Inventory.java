@@ -1,8 +1,14 @@
 package com.techelevator;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Timestamp;
 import java.text.DecimalFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
@@ -18,6 +24,7 @@ public class Inventory {//create the class
 	//private int currentStock;
 	private DecimalFormat formatter = new DecimalFormat("0.00");
 	
+	Timestamp timestampNow = Timestamp.valueOf(LocalDateTime.now());
 	//create constructors
 		//default constructor
 	public Inventory () throws FileNotFoundException {
@@ -54,11 +61,11 @@ private void loadFile (String fileNameToLoad) throws FileNotFoundException {
 			Set<String> theKeys = machineInv.keySet();
 			for(String anElement : theKeys) {  // Loop through theKeys one at a time assigning the current key to anElement
 				Slot theValue = machineInv.get(anElement);   // get the value for current key and store it in theValue
-				System.out.println(anElement + " " + theValue);  // Display the person's name and where they live	
+				System.out.println(anElement + " " + theValue);  	
 			}
 		}
 		
-		public void purchaseItem (String slotChoice) {
+		public void purchaseItem (String slotChoice) throws IOException {
 			// search the map to confirm the slot number is valid
 			String theName = machineInv.get(slotChoice).itemName();
 			double thePrice = machineInv.get(slotChoice).price;
@@ -86,8 +93,8 @@ private void loadFile (String fileNameToLoad) throws FileNotFoundException {
 						System.out.println("Chew, Chew, Yum!");
 						System.out.println("You purchased " + theName + " for $" +formatter.format(thePrice)+".");
 					}
-					//default: 
-						//System.out.println("Invalid");
+					
+					
 				}				
 			else {
 				System.out.println("That selection was not valid. Please select a valid slot.");
@@ -99,7 +106,21 @@ private void loadFile (String fileNameToLoad) throws FileNotFoundException {
 			double itemPrice = machineInv.get(slotChoice).getPrice();
 			return itemPrice;
 		}
+		
+		public void addToLog (String logLine) throws IOException {
+			File logFile = new File("./Log.txt");
+			boolean appendToFile = true;
 					
+			FileWriter aFileWriter = new FileWriter(logFile, appendToFile);
+				
+			BufferedWriter aBufferedWriter= new BufferedWriter(aFileWriter);
+				
+			try (PrintWriter diskFileWriter = new PrintWriter(aBufferedWriter))
+			{		
+			diskFileWriter.println(logLine);
 			}
+	}
+					
+}
 			
 			
