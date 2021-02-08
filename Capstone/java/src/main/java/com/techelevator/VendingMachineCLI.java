@@ -127,7 +127,7 @@ public class VendingMachineCLI {
 				case SUB_MENU_FINISH_TRANSACTION:
 					
 					
-					//thisMachine.getChange();
+					//thisMachine.getChange();???
 					
 					thisMachine.endMethodProcessing(); // Invoke method to perform end of method processing
 					shouldProcess = false;    // Set variable to end loop
