@@ -64,7 +64,6 @@ public class VendingMachineCLI {
 	private VendingMachine thisMachine;//instantiates a vending machine, which will also cause the inventory to be loaded
 	
 	public void run() throws IOException {
-		//VendingMachine thisMachine = new VendingMachine(); //instantiates a vending machine, which will also cause the inventory to be loaded
 		
 		boolean shouldProcess = true;         // Loop control variable
 		
@@ -103,7 +102,6 @@ public class VendingMachineCLI {
 	
 	public void purchaseItems() throws IOException {	 // static attribute used as method is not associated with specific object instance
 		boolean shouldProcess = true;         // Loop control variable
-		//System.out.println(SUB_MENU_CURRENT_MONEY + " $" + formatter.format(thisMachine.displayMoney()));
 		while(shouldProcess) {                // Loop until user indicates they want to exit
 			
 			
@@ -125,10 +123,7 @@ public class VendingMachineCLI {
 					break;                    // Exit switch statement
 			
 				case SUB_MENU_FINISH_TRANSACTION:
-					
-					
-					//thisMachine.getChange();???
-					
+									
 					thisMachine.exitPurchaseMenu(); // Invoke method to perform end of method processing
 					shouldProcess = false;    // Set variable to end loop
 					
@@ -138,11 +133,12 @@ public class VendingMachineCLI {
 		
 	}
 	public void salesReport() {
-		thisMachine.salesReport();
+	//	thisMachine.salesReport();
 		
 	}
 	
 	public void endMethodProcessing() { // static attribute used as method is not associated with specific object instance
 		// Any processing that needs to be done before method ends
+		//Didn't get this far.
 	}
 }

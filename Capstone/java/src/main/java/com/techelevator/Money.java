@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Money {
 
-//private final int DEFAULTBALANCE = 0;
 public double currentBalance;
 public double userAmount;
 public double startingBalance() {
@@ -15,7 +14,6 @@ public double startingBalance() {
 
 public double addMoney () {
 	System.out.println("Please enter the amount you are feeding: $1.00, $2.00, $5.00 or $10.00.");
-	//String [] acceptableBills = new String [] {"$1.00", "$2.00", "$5.00", "$10.00"};
 	Scanner userInput = new Scanner(System.in);
 	String userText= userInput.nextLine();
 	userAmount = Double.valueOf(userText);

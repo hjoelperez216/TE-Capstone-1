@@ -70,13 +70,9 @@ private void loadFile (String fileNameToLoad) throws FileNotFoundException {
 			String theName = machineInv.get(slotChoice).itemName();
 			double thePrice = machineInv.get(slotChoice).price;
 			if (machineInv.containsKey(slotChoice)){
-				//Set<Slot> theSlots = (Set<Slot>) machineInv.values();
 				machineInv.get(slotChoice).decreaseQuantity();
 				String itemType = machineInv.get(slotChoice).itemType();
-				//boolean shouldProcess = true;
-				//while (shouldProcess) {
-				//switch (itemType) {
-				
+								
 					if (itemType.contains("Chip")){
 						System.out.println("Crunch, Crunch, Yum!");	
 						System.out.println("You purchased " + theName + " for $" +formatter.format(thePrice)+".");
@@ -120,6 +116,12 @@ private void loadFile (String fileNameToLoad) throws FileNotFoundException {
 			diskFileWriter.println(logLine);
 			}
 	}
+//		public String salesReport() {
+//			String salesReportTest = "";
+//			
+//			//for (machineInv.get(slotChoice))
+//			return salesReportTest;
+//		}
 					
 }
 			

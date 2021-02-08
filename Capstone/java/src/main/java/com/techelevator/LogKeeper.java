@@ -1,5 +1,5 @@
 package com.techelevator;
 
-public class ShoppingCart {
+public class LogKeeper {
 
 }

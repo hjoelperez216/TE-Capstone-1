@@ -15,7 +15,7 @@ public class VendingMachine {
 	
 	private Inventory machineInv;
 	private Money machineMoney;
-	private ShoppingCart machineCart;
+	
 	
 		
 	private DecimalFormat formatter = new DecimalFormat("0.00");
@@ -41,8 +41,7 @@ public class VendingMachine {
 	public VendingMachine () throws FileNotFoundException {
 		this.machineInv		=	new Inventory();
 		this.machineMoney	=	new Money();
-		this.machineCart	=	new ShoppingCart();
-	
+			
 		}
 	public void displayItems() {
 		machineInv.displayInventory();
@@ -69,6 +68,8 @@ public class VendingMachine {
 		addToLog(timestampNow + machineInv.machineInv.get(slotChoice).itemName() 
 				+ " " +slotChoice+ " " + "$" +
 				formatter.format((machineMoney.currentBalance+machineInv.machineInv.get(slotChoice).price))+ " "+ "$" + formatter.format(machineMoney.currentBalance));
+		
+		//salesReport(machineInv.machineInv.get(slotChoice).itemName() +);
 		}
 		else System.out.println("You do not have enough funds for this selection.");
 
@@ -79,8 +80,27 @@ public class VendingMachine {
 		return machineMoney.makeChange();
 		}
 	
-	public void salesReport() throws IOException {
+	public void salesReport(String saleLine) throws IOException {
 		
+		Timestamp dateTime = timestampNow;
+		String newReport = "./" + dateTime + "SalesReport.txt";
+		File salesFile = new File(newReport);
+		boolean appendToFile = false;
+				
+		FileWriter aFileWriter = new FileWriter(salesFile, appendToFile);
+			
+		BufferedWriter aBufferedWriter= new BufferedWriter(aFileWriter);
+			
+		try (PrintWriter diskFileWriter = new PrintWriter(aBufferedWriter))
+		{		
+			//for (machineInv.machineInv.g)
+		diskFileWriter.println(saleLine);
+		// Planning to have this file create the Sales Report
+		// Were going to use display item as a base to get list of all names as well as current stock
+		// Were going to populate quantity sold with beginning stock - remaining stock and write this to the file
+		// Ran out of time...
+		
+		}
 	}
 	public void exitPurchaseMenu() throws IOException {
 		getChange();
